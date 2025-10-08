@@ -6,6 +6,8 @@ const cartitem = document.getElementById("cart-items")
 let cart = []
 let totalPrice = document.getElementById("total-price")
 
+console.log(totalPrice)
+
 
 
 fetch("https://fakestoreapi.com/products")
@@ -42,8 +44,11 @@ fetch("https://fakestoreapi.com/products")
     })
 })
 
-const cartData=localStorage.getItem("cart")
-const parsedCartData=(JSON.parse(cartData))
+const cartData=localStorage.getItem("cart") || "[]"
+console.log(cartData)
+const parsedCartData= JSON.parse(cartData)
+
+console.log(parsedCartData)
 
 parsedCartData.forEach((item) => {
   const li = document.createElement("li")
